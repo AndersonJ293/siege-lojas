@@ -13,9 +13,8 @@ uses
 
 type
   TDmDados = class(TDataModule)
-    FDConnection1: TFDConnection;
+    FDConnection: TFDConnection;
     FDGUIxWaitCursor1: TFDGUIxWaitCursor;
-    QryBancoDados: TFDQuery;
   private
     { Private declarations }
   public

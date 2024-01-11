@@ -518,8 +518,8 @@ object FrmPrincipal: TFrmPrincipal
     BevelOuter = bvNone
     TabOrder = 3
     OnMouseEnter = Panel2MouseEnter
-    ExplicitWidth = 827
-    ExplicitHeight = 637
+    ExplicitLeft = 256
+    ExplicitTop = 86
     object PnlSubMenuCadastro: TPanel
       Left = 382
       Top = 277
@@ -1017,7 +1017,7 @@ object FrmPrincipal: TFrmPrincipal
     end
     object PnlSubMenuConfiguracoes: TPanel
       Left = 176
-      Top = 509
+      Top = 532
       Width = 200
       Height = 108
       AutoSize = True
@@ -1085,8 +1085,7 @@ object FrmPrincipal: TFrmPrincipal
         Margin = 10
         ParentFont = False
         StyleName = 'Windows'
-        ExplicitLeft = -21
-        ExplicitTop = 79
+        ExplicitLeft = 6
       end
     end
   end
