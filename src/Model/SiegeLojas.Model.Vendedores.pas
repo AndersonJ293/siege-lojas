@@ -28,7 +28,7 @@ type
     CdsVendedoresEmail: TStringField;
     CdsVendedoresOperador: TStringField;
     CdsVendedoresId_Vendedor: TIntegerField;
-    CdsVendedoresComissao: TBCDField;
+    CdsVendedoresComissao: TFMTBCDField;
   private
     { Private declarations }
   public

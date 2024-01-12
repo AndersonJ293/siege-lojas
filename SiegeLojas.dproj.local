@@ -2,20 +2,20 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2024/01/10 09:21:02.000.850,=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\Unit1.pas</Transaction>
-    <Transaction>2024/01/10 09:22:47.000.161,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\src\View\SiegeLojas.View.Principal.dfm=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\Unit1.dfm</Transaction>
-    <Transaction>2024/01/10 09:22:47.000.161,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\src\View\SiegeLojas.View.Principal.pas=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\Unit1.pas</Transaction>
-    <Transaction>2024/01/10 09:23:34.000.647,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\SiegeLojas.dproj=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\Project1.dproj</Transaction>
+    <Transaction>2024/01/10 09:22:47.000.161,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\Unit1.pas=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\src\View\SiegeLojas.View.Principal.pas</Transaction>
+    <Transaction>2024/01/10 09:22:47.000.161,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\Unit1.dfm=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\src\View\SiegeLojas.View.Principal.dfm</Transaction>
+    <Transaction>2024/01/10 09:23:34.000.647,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\Project1.dproj=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\SiegeLojas.dproj</Transaction>
     <Transaction>2024/01/10 16:15:54.000.707,=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.pas</Transaction>
-    <Transaction>2024/01/10 16:16:36.000.688,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\src\Model\SiegeLojas.Model.Dados.dfm=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.dfm</Transaction>
-    <Transaction>2024/01/10 16:16:36.000.688,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\src\Model\SiegeLojas.Model.Dados.pas=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.pas</Transaction>
+    <Transaction>2024/01/10 16:16:36.000.688,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.pas=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\src\Model\SiegeLojas.Model.Dados.pas</Transaction>
+    <Transaction>2024/01/10 16:16:36.000.688,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.dfm=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\src\Model\SiegeLojas.Model.Dados.dfm</Transaction>
     <Transaction>2024/01/10 16:51:12.000.286,=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.pas</Transaction>
-    <Transaction>2024/01/10 16:51:29.000.425,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\src\View\SiegeLojas.View.MensagemFlutuante.pas=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.pas</Transaction>
-    <Transaction>2024/01/10 16:51:29.000.425,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\src\View\SiegeLojas.View.MensagemFlutuante.dfm=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.dfm</Transaction>
+    <Transaction>2024/01/10 16:51:29.000.425,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.pas=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\src\View\SiegeLojas.View.MensagemFlutuante.pas</Transaction>
+    <Transaction>2024/01/10 16:51:29.000.425,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.dfm=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\src\View\SiegeLojas.View.MensagemFlutuante.dfm</Transaction>
     <Transaction>2024/01/10 17:19:35.000.067,=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.pas</Transaction>
-    <Transaction>2024/01/10 17:19:55.000.513,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\src\View\SiegeLojas.View.Vendedores.pas=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.pas</Transaction>
-    <Transaction>2024/01/10 17:19:55.000.513,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\src\View\SiegeLojas.View.Vendedores.dfm=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.dfm</Transaction>
-    <Transaction>2024/01/11 17:20:14.840,=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.pas</Transaction>
-    <Transaction>2024/01/11 17:20:31.060,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\src\Model\SiegeLojas.Model.Vendedores.pas=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.pas</Transaction>
-    <Transaction>2024/01/11 17:20:31.060,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\src\Model\SiegeLojas.Model.Vendedores.dfm=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.dfm</Transaction>
+    <Transaction>2024/01/10 17:19:55.000.513,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.pas=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\src\View\SiegeLojas.View.Vendedores.pas</Transaction>
+    <Transaction>2024/01/10 17:19:55.000.513,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.dfm=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\src\View\SiegeLojas.View.Vendedores.dfm</Transaction>
+    <Transaction>2024/01/11 17:20:14.000.840,=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.pas</Transaction>
+    <Transaction>2024/01/11 17:20:31.000.060,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.dfm=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\src\Model\SiegeLojas.Model.Vendedores.dfm</Transaction>
+    <Transaction>2024/01/11 17:20:31.000.060,C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\Unit1.pas=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\SiegeLojas\src\Model\SiegeLojas.Model.Vendedores.pas</Transaction>
   </Transactions>
 </BorlandProject>

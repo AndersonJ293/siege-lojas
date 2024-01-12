@@ -92,7 +92,7 @@ object FrmVendedores: TFrmVendedores
             Width = 113
             Height = 32
             Align = alClient
-            Pen.Color = clWhite
+            Pen.Color = clMedGray
             Pen.Style = psClear
             Shape = stRoundRect
             ExplicitLeft = -3
@@ -166,31 +166,42 @@ object FrmVendedores: TFrmVendedores
             ExplicitTop = -2
             ExplicitHeight = 29
           end
-          object EdtData: TDateTimePicker
+          object EdtData: TCalendarPicker
             AlignWithMargins = True
-            Left = 7
+            Left = 5
             Top = 3
-            Width = 165
+            Width = 169
             Height = 26
-            Margins.Left = 7
-            Margins.Right = 7
+            Margins.Left = 5
+            Margins.Right = 5
             Align = alClient
-            BevelInner = bvNone
-            BevelOuter = bvNone
-            CalColors.BackColor = clNavy
-            CalColors.TextColor = clNavy
-            CalColors.TitleBackColor = clNavy
-            CalColors.TitleTextColor = clNavy
-            CalColors.MonthBackColor = clNavy
-            CalColors.TrailingTextColor = clNavy
-            Date = 45302.000000000000000000
-            Time = 45302.000000000000000000
-            Color = clNavy
+            BorderColor = clWhite
+            CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+            CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+            CalendarHeaderInfo.DaysOfWeekFont.Height = -17
+            CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+            CalendarHeaderInfo.DaysOfWeekFont.Style = []
+            CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+            CalendarHeaderInfo.Font.Color = clWindowText
+            CalendarHeaderInfo.Font.Height = -25
+            CalendarHeaderInfo.Font.Name = 'Segoe UI'
+            CalendarHeaderInfo.Font.Style = []
+            Color = clWindow
+            Date = 45303.000000000000000000
             Enabled = False
-            ParentShowHint = False
-            ShowHint = False
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clGray
+            Font.Height = -17
+            Font.Name = 'Segoe UI'
+            Font.Style = []
+            IsEmpty = False
+            ParentFont = False
+            StyleName = 'Windows'
             TabOrder = 0
-            StyleElements = [seFont, seClient]
+            ExplicitLeft = 16
+            ExplicitTop = 0
+            ExplicitWidth = 140
+            ExplicitHeight = 32
           end
         end
       end
@@ -257,6 +268,7 @@ object FrmVendedores: TFrmVendedores
             BorderStyle = bsNone
             Color = clWhite
             TabOrder = 0
+            TextHint = 'Nome'
           end
         end
       end
@@ -323,6 +335,7 @@ object FrmVendedores: TFrmVendedores
             BorderStyle = bsNone
             Color = clWhite
             TabOrder = 0
+            TextHint = 'CPF'
           end
         end
       end
@@ -388,6 +401,7 @@ object FrmVendedores: TFrmVendedores
             BorderStyle = bsNone
             Color = clWhite
             TabOrder = 0
+            TextHint = 'Telefone'
           end
         end
       end
@@ -453,6 +467,7 @@ object FrmVendedores: TFrmVendedores
             BorderStyle = bsNone
             Color = clWhite
             TabOrder = 0
+            TextHint = 'Celular'
           end
         end
       end
@@ -519,6 +534,7 @@ object FrmVendedores: TFrmVendedores
             BorderStyle = bsNone
             Color = clWhite
             TabOrder = 0
+            TextHint = 'Cep'
           end
         end
       end
@@ -584,6 +600,7 @@ object FrmVendedores: TFrmVendedores
             BorderStyle = bsNone
             Color = clWhite
             TabOrder = 0
+            TextHint = 'Endere'#231'o'
           end
         end
       end
@@ -650,6 +667,7 @@ object FrmVendedores: TFrmVendedores
             BorderStyle = bsNone
             Color = clWhite
             TabOrder = 0
+            TextHint = 'N'#250'mero'
           end
         end
       end
@@ -716,6 +734,7 @@ object FrmVendedores: TFrmVendedores
             BorderStyle = bsNone
             Color = clWhite
             TabOrder = 0
+            TextHint = 'Bairro'
           end
         end
       end
@@ -780,7 +799,10 @@ object FrmVendedores: TFrmVendedores
             BevelOuter = bvNone
             BorderStyle = bsNone
             Color = clWhite
+            DoubleBuffered = False
+            ParentDoubleBuffered = False
             TabOrder = 0
+            TextHint = 'Cidade'
           end
         end
       end
@@ -848,6 +870,7 @@ object FrmVendedores: TFrmVendedores
             Color = clWhite
             MaxLength = 2
             TabOrder = 0
+            TextHint = 'Estado'
           end
         end
       end
@@ -912,6 +935,7 @@ object FrmVendedores: TFrmVendedores
             BorderStyle = bsNone
             Color = clWhite
             TabOrder = 0
+            TextHint = 'Email'
           end
         end
       end
@@ -978,6 +1002,7 @@ object FrmVendedores: TFrmVendedores
             BorderStyle = bsNone
             Color = clWhite
             TabOrder = 0
+            TextHint = 'Comiss'#227'o'
           end
         end
       end
@@ -1106,6 +1131,8 @@ object FrmVendedores: TFrmVendedores
         Margins.Bottom = 0
         Align = alLeft
         Caption = 'Cancelar'
+        Enabled = False
+        OnClick = BtnCancelarClick
         ExplicitLeft = 198
         ExplicitTop = 31
       end
@@ -1121,6 +1148,7 @@ object FrmVendedores: TFrmVendedores
         Margins.Bottom = 0
         Align = alLeft
         Caption = 'Editar'
+        OnClick = BtnEditarClick
         ExplicitLeft = 202
       end
       object BtnSalvar: TSpeedButton
@@ -1135,6 +1163,8 @@ object FrmVendedores: TFrmVendedores
         Margins.Bottom = 0
         Align = alLeft
         Caption = 'Salvar'
+        Enabled = False
+        OnClick = BtnSalvarClick
         ExplicitLeft = 106
       end
       object BtnAdicionar: TSpeedButton
@@ -1149,6 +1179,7 @@ object FrmVendedores: TFrmVendedores
         Margins.Bottom = 0
         Align = alLeft
         Caption = 'Adicionar'
+        OnClick = BtnAdicionarClick
         ExplicitHeight = 49
       end
       object BtnPesquisar: TSpeedButton
@@ -1177,95 +1208,6 @@ object FrmVendedores: TFrmVendedores
     VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast]
     Flat = True
     TabOrder = 1
-  end
-  object DBGrid1: TDBGrid
-    Left = 264
-    Top = 240
-    Width = 320
-    Height = 120
-    DataSource = DataSource1
-    TabOrder = 2
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -12
-    TitleFont.Name = 'Segoe UI'
-    TitleFont.Style = []
-    Columns = <
-      item
-        Expanded = False
-        FieldName = 'Id_Vendedor'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Data'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Nome'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Cpf'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Telefone'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Celular'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Cep'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Endereco'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Numero'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Bairro'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Cidade'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Estado'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Email'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Comissao'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Operador'
-        Visible = True
-      end>
   end
   object DataSource1: TDataSource
     DataSet = DmVendedores.CdsVendedores

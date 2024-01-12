@@ -80,11 +80,9 @@ object DmVendedores: TDmVendedores
       FieldName = 'Id_Vendedor'
       Origin = 'id_vendedor'
     end
-    object CdsVendedoresComissao: TBCDField
-      FieldKind = fkCalculated
+    object CdsVendedoresComissao: TFMTBCDField
       FieldName = 'Comissao'
-      Size = 9
-      Calculated = True
+      Size = 18
     end
   end
   object DspVendedores: TDataSetProvider

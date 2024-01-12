@@ -1,13 +1,12 @@
 object DmDados: TDmDados
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
   Height = 750
   Width = 1000
   PixelsPerInch = 120
   object FDConnection: TFDConnection
     Params.Strings = (
-      
-        'Database=C:\Users\Conceito Tecnologia\Desktop\Nova pasta\Delphi\' +
-        'SiegeLojas\bin\SiegeLojasDB.db3'
-      'DriverID=SQLite')
+      'DriverID=sQLite')
     ResourceOptions.AssignedValues = [rvAutoReconnect]
     ResourceOptions.AutoReconnect = True
     LoginPrompt = False
@@ -16,6 +15,7 @@ object DmDados: TDmDados
   end
   object FDGUIxWaitCursor1: TFDGUIxWaitCursor
     Provider = 'Forms'
+    ScreenCursor = gcrAppWait
     Left = 192
     Top = 48
   end

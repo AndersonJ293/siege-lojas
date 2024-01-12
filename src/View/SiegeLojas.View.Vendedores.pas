@@ -3,14 +3,14 @@ unit SiegeLojas.View.Vendedores;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  Winapi.Windows, Winapi.Messages, System.Variants,
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.ExtCtrls, Vcl.Buttons, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.StdCtrls,
   Vcl.ComCtrls, Vcl.DBCtrls, Vcl.WinXPickers, Datasnap.Provider,
-  Datasnap.DBClient, Vcl.Grids, Vcl.DBGrids;
+  Datasnap.DBClient, Vcl.Grids, Vcl.DBGrids, Vcl.WinXCalendars;
 
 type
   TFrmVendedores = class(TForm)
@@ -100,13 +100,22 @@ type
     Shape15: TShape;
     EdtOperador: TEdit;
     DBNavigator1: TDBNavigator;
-    EdtData: TDateTimePicker;
-    DBGrid1: TDBGrid;
+    EdtData: TCalendarPicker;
     procedure BtnFecharClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure BtnAdicionarClick(Sender: TObject);
+    procedure BtnCancelarClick(Sender: TObject);
+    procedure BtnEditarClick(Sender: TObject);
+    procedure BtnSalvarClick(Sender: TObject);
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
   private
     { Private declarations }
+    procedure LimpaCampos;
+    procedure BloqueiaCampos;
+    procedure LiberaCampos;
+    procedure ValidaCampo(Campo: TEdit);
+    procedure DesabilitaBotoes;
+    procedure HabilitaBotoes;
   public
     { Public declarations }
   end;
@@ -118,16 +127,120 @@ implementation
 
 {$R *.dfm}
 
-uses SiegeLojas.Model.Vendedores;
+uses SiegeLojas.Model.Vendedores, System.DateUtils, System.SysUtils;
+
+procedure TFrmVendedores.BloqueiaCampos;
+var Contador : integer;
+begin
+  for Contador := 0 to Pred(ComponentCount) do
+      if Components[Contador] is TCustomEdit then
+          TCustomEdit(Components[Contador]).Enabled := false;
+  DBNavigator1.Enabled := true;
+end;
+
+procedure TFrmVendedores.BtnAdicionarClick(Sender: TObject);
+begin
+  LimpaCampos;
+  DataSource1.DataSet.Insert;
+  EdtData.Date := Now;
+  LiberaCampos;
+  EdtCod.Text := '<Próximo>';
+  EdtNome.SetFocus;
+  HabilitaBotoes;
+end;
+
+procedure TFrmVendedores.BtnCancelarClick(Sender: TObject);
+begin
+  DataSource1.DataSet.Cancel;
+  BloqueiaCampos;
+  DesabilitaBotoes;
+end;
+
+procedure TFrmVendedores.BtnEditarClick(Sender: TObject);
+begin
+  DataSource1.DataSet.Edit;
+  LiberaCampos;
+  HabilitaBotoes;
+end;
 
 procedure TFrmVendedores.BtnFecharClick(Sender: TObject);
 begin
+  BtnCancelarClick(Sender);
   Close;
+end;
+
+procedure TFrmVendedores.BtnSalvarClick(Sender: TObject);
+begin
+  ValidaCampo(EdtNome);
+  ValidaCampo(EdtCpf);
+  ValidaCampo(EdtCelular);
+  ValidaCampo(EdtCep);
+  ValidaCampo(EdtEndereco);
+  ValidaCampo(EdtBairro);
+  ValidaCampo(EdtCidade);
+  ValidaCampo(EdtEstado);
+  ValidaCampo(EdtComissao);
+
+  if DataSource1.DataSet.State in [dsInsert] then
+    begin
+      DmVendedores.CdsVendedoresId_Vendedor.AsInteger := 4;
+      DmVendedores.CdsVendedoresOperador.AsString := 'Supervisor';
+      DmVendedores.CdsVendedoresData.AsDateTime := EdtData.Date;
+    end;
+
+  DmVendedores.CdsVendedoresNome.AsString := Trim(EdtNome.Text);
+  DmVendedores.CdsVendedoresCpf.AsString := Trim(EdtCpf.Text);
+  DmVendedores.CdsVendedoresTelefone.AsString := Trim(EdtTelefone.Text);
+  DmVendedores.CdsVendedoresCelular.AsString := Trim(EdtTelefone.Text);
+  DmVendedores.CdsVendedoresCep.AsString := Trim(EdtCep.Text);
+  DmVendedores.CdsVendedoresEndereco.AsString := Trim(EdtEndereco.Text);
+  DmVendedores.CdsVendedoresNumero.AsString := Trim(EdtNumero.Text);
+  DmVendedores.CdsVendedoresBairro.AsString := Trim(EdtBairro.Text);
+  DmVendedores.CdsVendedoresCidade.AsString := Trim(EdtCidade.Text);
+  DmVendedores.CdsVendedoresEstado.AsString := Trim(EdtEstado.Text);
+  DmVendedores.CdsVendedoresComissao.AsCurrency := StrToFloat(Trim(EdtComissao.Text));
+  DmVendedores.CdsVendedoresEmail.AsString := Trim(EdtEmail.Text);
+
+  DmVendedores.CdsVendedores.Post;
+  DmVendedores.CdsVendedores.ApplyUpdates(0);
+
+  BloqueiaCampos;
+  DesabilitaBotoes;
 end;
 
 procedure TFrmVendedores.DataSource1DataChange(Sender: TObject; Field: TField);
 begin
-  EdtNome.Text := DmVendedores.CdsVendedoresNome.AsString;
+  if not (DmVendedores.CdsVendedores.State in [dsInsert])
+   and not (DmVendedores.CdsVendedores.State in [dsEdit]) then
+    begin
+      EdtCod.Text := DmVendedores.CdsVendedoresId_Vendedor.AsString;
+      EdtData.Date := DmVendedores.CdsVendedoresData.Value;
+      EdtNome.Text := DmVendedores.CdsVendedoresNome.AsString;
+      EdtCpf.Text := DmVendedores.CdsVendedoresCpf.AsString;
+      EdtTelefone.Text := DmVendedores.CdsVendedoresTelefone.AsString;
+      EdtCelular.Text := DmVendedores.CdsVendedoresCelular.AsString;
+      EdtCep.Text := DmVendedores.CdsVendedoresCep.AsString;
+      EdtEndereco.Text := DmVendedores.CdsVendedoresEndereco.AsString;
+      EdtNumero.Text := DmVendedores.CdsVendedoresNumero.AsString;
+      EdtBairro.Text := DmVendedores.CdsVendedoresBairro.AsString;
+      EdtCidade.Text := DmVendedores.CdsVendedoresCidade.AsString;
+      EdtEstado.Text := DmVendedores.CdsVendedoresEstado.AsString;
+      EdtComissao.Text := FormatCurr('0.00',
+        DmVendedores.CdsVendedoresComissao.AsCurrency);
+      EdtEmail.Text := DmVendedores.CdsVendedoresEmail.AsString;
+      EdtOperador.Text := DmVendedores.CdsVendedoresOperador.AsString;
+    end;
+end;
+
+procedure TFrmVendedores.DesabilitaBotoes;
+begin
+  BtnSalvar.Enabled := false;
+  BtnCancelar.Enabled := false;
+
+  BtnAdicionar.Enabled := true;
+  BtnEditar.Enabled := true;
+  BtnExcluir.Enabled := true;
+  BtnPesquisar.Enabled := true;
 end;
 
 procedure TFrmVendedores.FormShow(Sender: TObject);
@@ -135,6 +248,52 @@ begin
   DmVendedores.CdsVendedores.Close;
   DmVendedores.CdsVendedores.CommandText := 'select * from tb_vendedores';
   DmVendedores.CdsVendedores.Open;
+  BloqueiaCampos;
+end;
+
+procedure TFrmVendedores.HabilitaBotoes;
+begin
+  BtnSalvar.Enabled := true;
+  BtnCancelar.Enabled := true;
+
+  BtnAdicionar.Enabled := false;
+  BtnEditar.Enabled := false;
+  BtnExcluir.Enabled := false;
+  BtnPesquisar.Enabled := false;
+end;
+
+procedure TFrmVendedores.LiberaCampos;
+var Contador : integer;
+begin
+  for Contador := 0 to Pred(ComponentCount) do
+      if Components[Contador] is TCustomEdit then
+          TCustomEdit(Components[Contador]).Enabled := true;
+  EdtCod.Enabled := false;
+  EdtOperador.Enabled := false;
+  DBNavigator1.Enabled := false;
+end;
+
+procedure TFrmVendedores.LimpaCampos;
+var Contador : integer;
+begin
+  for Contador := 0 to Pred(ComponentCount) do
+    begin
+      if Components[Contador] is TCustomEdit then
+          TCustomEdit(Components[Contador]).Clear;
+    end;
+end;
+
+
+procedure TFrmVendedores.ValidaCampo(Campo: TEdit);
+begin
+  if Trim(Campo.Text) = '' then
+    begin
+      Campo.SetFocus;
+      Application.MessageBox(PWideChar('O campo ' + Campo.TextHint
+        + ' não pode ser vazio.') , 'Atenção',
+          MB_OK + MB_ICONWARNING);
+      abort;
+    end;
 end;
 
 end.
